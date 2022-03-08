@@ -1,9 +1,10 @@
 import React from "react";
 import { NavLink} from 'react-router-dom';
 import './App.css';
-
+//Navbar is used to give navbar to the app and link to redirect to specific component
 export default function Navbar() {
   return (
+  
     <nav className="navbar navbar-expand-md navbar-dark bg-primary">
       <div className="container">
       

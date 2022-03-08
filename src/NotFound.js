@@ -1,5 +1,5 @@
 import React from 'react';
-
+//NotFound component is used to give one not found page if user enters something wrong or requested page not available
 export default function NotFound() {
   return (
     <div className="NotFound">

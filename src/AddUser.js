@@ -6,6 +6,7 @@ import axios from 'axios';
 
 function AddUser() {
     const navigate = useNavigate();
+    //creating empty array and using it to store data when user adds the user
     const [user, setUser] = useState({
       name: "",
       avatar: "",
@@ -13,27 +14,14 @@ function AddUser() {
       phone: "",
       id: ""
     });
-  
+  //destructing the data in user
     const { name,avatar, email, phone, id} = user;
+    //code to update the user object with the data user enters
     const onInputChange = e => {
     console.log([e.target.name], e.target.value);
       setUser({ ...user, [e.target.name]: e.target.value });
     };
-  
-//     const onSubmit = async e => {
-//       e.preventDefault();
-//       await fetch("https://6223a3133af069a0f9a70bdc.mockapi.io/users",
-// // {method:'POST'}  );
-// // const user=data.json();
-// {method:"POST",
-//       headers:{"Content-type":"application/json"},
-//        body:JSON.stringify(user)
-//        });
-
-      
-// navigate('/');
-//     };
-
+  //post method to add the user
 const onSubmit = async e => {
     e.preventDefault();
     await axios.post("https://6223a3133af069a0f9a70bdc.mockapi.io/users", user);
@@ -45,6 +33,7 @@ navigate("/");
     <div className="container">
     <div className="w-75 mx-auto shadow p-5">
       <h2 className="text-center mb-4">ADD USER</h2>
+      {/* creating a form */}
       <form onSubmit={e => onSubmit(e)}>
       <div className="form-group">
           <input

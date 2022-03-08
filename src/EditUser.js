@@ -7,6 +7,7 @@ import axios from 'axios';
 function EditUser() {
     const navigate = useNavigate();
     const {index}=useParams();
+        //creating empty array and using it to store data when user edits the user
     const [user, setUser] = useState({
       name: "",
       avatar: "",
@@ -14,20 +15,22 @@ function EditUser() {
       phone: "",
       id: ""
     });
-  
-    const { name,avatar, email, phone, id} = user;
+    //destructing the data in user
+    const { name,avatar, email, phone, id} = user;   
+    
+    //code to update the user object with the data user changes
     const onInputChange = e => {
       setUser({ ...user, [e.target.name]: e.target.value });
     };
   
-
+//put method to update the user
 
 const onSubmit = async e => {
     e.preventDefault();
     await axios.put("https://6223a3133af069a0f9a70bdc.mockapi.io/users/"+index, user);
 navigate("/");
   };
-  
+  //using useEffect to run loadUsers method and get the data of specified user in the form before we update the data
   useEffect(()=>{
   loadUsers();
   },[]);
@@ -36,7 +39,7 @@ navigate("/");
   const result=  await axios.get("https://6223a3133af069a0f9a70bdc.mockapi.io/users/"+index);
   setUser(result.data);}
 
-
+//creating a form to edit the data
   return (
     <div className="container">
     <div className="w-75 mx-auto shadow p-5">

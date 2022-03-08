@@ -1,7 +1,7 @@
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
+//importing all required components 
 import About from "./About";
 import "./App.css";
-
 import Home from "./Home";
 import Navbar from "./Navbar";
 import NotFound from "./NotFound";
@@ -10,7 +10,7 @@ import AddUser from "./AddUser";
 import EditUser from "./EditUser";
 import User from './User';
 
-
+//app component to route to diffrent components or pages based on path 
 function App() {
   return (
     <BrowserRouter>
